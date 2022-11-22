@@ -51,6 +51,7 @@ namespace Bankomatas.Forms
                 MessageBox.Show($"Maksimali išimamų pinigų suma 1000 Eur");
                 return;
             }
+
             string pakeistiDuomenys = duomenys.Replace(tekstas,
                                                        $"{kortele.KortelesNumeris.ToString()}," +
                                                        $"{kortele.PinKodas.ToString()}," +

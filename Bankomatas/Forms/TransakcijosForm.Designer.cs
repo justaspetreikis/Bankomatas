@@ -36,8 +36,11 @@
             this.operacijosTipasDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.piniguSumaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.transakcijaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.button_Prideti = new System.Windows.Forms.Button();
-            this.button_vienosKorteles = new System.Windows.Forms.Button();
+            this.button_VisosTransakcijos = new System.Windows.Forms.Button();
+            this.button_Paskutines5 = new System.Windows.Forms.Button();
+            this.buttonPiniguInesimai = new System.Windows.Forms.Button();
+            this.button_PiniguIsemimai = new System.Windows.Forms.Button();
+            this.button_Gristi = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.transakcijaBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -46,7 +49,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 20.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(278, 19);
+            this.label1.Location = new System.Drawing.Point(344, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(214, 46);
             this.label1.TabIndex = 2;
@@ -105,36 +108,70 @@
             // 
             this.transakcijaBindingSource.DataSource = typeof(Bankomatas.Class.Transakcija);
             // 
-            // button_Prideti
+            // button_VisosTransakcijos
             // 
-            this.button_Prideti.Location = new System.Drawing.Point(54, 368);
-            this.button_Prideti.Name = "button_Prideti";
-            this.button_Prideti.Size = new System.Drawing.Size(133, 39);
-            this.button_Prideti.TabIndex = 4;
-            this.button_Prideti.Text = "Pridėti";
-            this.button_Prideti.UseVisualStyleBackColor = true;
-            this.button_Prideti.Click += new System.EventHandler(this.button_Prideti_Click);
+            this.button_VisosTransakcijos.Location = new System.Drawing.Point(54, 368);
+            this.button_VisosTransakcijos.Name = "button_VisosTransakcijos";
+            this.button_VisosTransakcijos.Size = new System.Drawing.Size(143, 48);
+            this.button_VisosTransakcijos.TabIndex = 4;
+            this.button_VisosTransakcijos.Text = "Visos Transakcijos";
+            this.button_VisosTransakcijos.UseVisualStyleBackColor = true;
+            this.button_VisosTransakcijos.Click += new System.EventHandler(this.button_Prideti_Click);
             // 
-            // button_vienosKorteles
+            // button_Paskutines5
             // 
-            this.button_vienosKorteles.Location = new System.Drawing.Point(217, 368);
-            this.button_vienosKorteles.Name = "button_vienosKorteles";
-            this.button_vienosKorteles.Size = new System.Drawing.Size(133, 39);
-            this.button_vienosKorteles.TabIndex = 5;
-            this.button_vienosKorteles.Text = "Pridėtikorteles";
-            this.button_vienosKorteles.UseVisualStyleBackColor = true;
-            this.button_vienosKorteles.Click += new System.EventHandler(this.button_vienosKorteles_Click);
+            this.button_Paskutines5.Location = new System.Drawing.Point(218, 368);
+            this.button_Paskutines5.Name = "button_Paskutines5";
+            this.button_Paskutines5.Size = new System.Drawing.Size(143, 48);
+            this.button_Paskutines5.TabIndex = 5;
+            this.button_Paskutines5.Text = "Paskutinės 5 Transakcijos";
+            this.button_Paskutines5.UseVisualStyleBackColor = true;
+            this.button_Paskutines5.Click += new System.EventHandler(this.button_Paskutines5_Click);
+            // 
+            // buttonPiniguInesimai
+            // 
+            this.buttonPiniguInesimai.Location = new System.Drawing.Point(383, 368);
+            this.buttonPiniguInesimai.Name = "buttonPiniguInesimai";
+            this.buttonPiniguInesimai.Size = new System.Drawing.Size(143, 48);
+            this.buttonPiniguInesimai.TabIndex = 6;
+            this.buttonPiniguInesimai.Text = "Pinigų Įnėšimai";
+            this.buttonPiniguInesimai.UseVisualStyleBackColor = true;
+            this.buttonPiniguInesimai.Click += new System.EventHandler(this.buttonPiniguInesimai_Click);
+            // 
+            // button_PiniguIsemimai
+            // 
+            this.button_PiniguIsemimai.Location = new System.Drawing.Point(555, 368);
+            this.button_PiniguIsemimai.Name = "button_PiniguIsemimai";
+            this.button_PiniguIsemimai.Size = new System.Drawing.Size(143, 48);
+            this.button_PiniguIsemimai.TabIndex = 7;
+            this.button_PiniguIsemimai.Text = "Pinigų Išėmimai";
+            this.button_PiniguIsemimai.UseVisualStyleBackColor = true;
+            this.button_PiniguIsemimai.Click += new System.EventHandler(this.button_PiniguIsemimai_Click);
+            // 
+            // button_Gristi
+            // 
+            this.button_Gristi.Location = new System.Drawing.Point(714, 368);
+            this.button_Gristi.Name = "button_Gristi";
+            this.button_Gristi.Size = new System.Drawing.Size(143, 48);
+            this.button_Gristi.TabIndex = 8;
+            this.button_Gristi.Text = "Grįšti";
+            this.button_Gristi.UseVisualStyleBackColor = true;
+            this.button_Gristi.Click += new System.EventHandler(this.button_Gristi_Click);
             // 
             // form_Transakcijos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1136, 450);
-            this.Controls.Add(this.button_vienosKorteles);
-            this.Controls.Add(this.button_Prideti);
+            this.ClientSize = new System.Drawing.Size(912, 450);
+            this.Controls.Add(this.button_Gristi);
+            this.Controls.Add(this.button_PiniguIsemimai);
+            this.Controls.Add(this.buttonPiniguInesimai);
+            this.Controls.Add(this.button_Paskutines5);
+            this.Controls.Add(this.button_VisosTransakcijos);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label1);
             this.Name = "form_Transakcijos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Transakcijos";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.transakcijaBindingSource)).EndInit();
@@ -147,12 +184,15 @@
 
         private Label label1;
         private DataGridView dataGridView1;
-        private Button button_Prideti;
+        private Button button_VisosTransakcijos;
         private BindingSource transakcijaBindingSource;
         private DataGridViewTextBoxColumn kortelesNumerisDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn operacijosLaikasDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn operacijosTipasDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn piniguSumaDataGridViewTextBoxColumn;
-        private Button button_vienosKorteles;
+        private Button button_Paskutines5;
+        private Button buttonPiniguInesimai;
+        private Button button_PiniguIsemimai;
+        private Button button_Gristi;
     }
 }

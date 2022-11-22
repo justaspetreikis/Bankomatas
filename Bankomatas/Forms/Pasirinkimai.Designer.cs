@@ -110,7 +110,7 @@
             this.button_transakcijos.Name = "button_transakcijos";
             this.button_transakcijos.Size = new System.Drawing.Size(160, 49);
             this.button_transakcijos.TabIndex = 6;
-            this.button_transakcijos.Text = "5 Transakcijos";
+            this.button_transakcijos.Text = "Transakcijos";
             this.button_transakcijos.UseVisualStyleBackColor = true;
             this.button_transakcijos.Click += new System.EventHandler(this.button_transakcijos_Click);
             // 
