@@ -34,10 +34,10 @@ namespace Bankomatas.Repozitorijos
             return OperacijuListas;
         }
 
-
         public Transakcija GrazintiKortelesOperacijuDuomenis(string kortelesNumeris)
         {
             return OperacijuListas.Where(x => x.KortelesNumeris == Guid.Parse(kortelesNumeris)).First();
         }
+
     }
 }

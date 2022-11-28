@@ -29,11 +29,35 @@ namespace Bankomatas
 
         private void button_Prisijungti_Click(object sender, EventArgs e)
         {
+            Guid kortelesNr;
+            int Pinas;
+            bool arGerasPin = int.TryParse(tb_pinKodas.Text, out Pinas);
+            bool arGerasKortelesnumeris = Guid.TryParse(tb_bankoKortelesNumeris.Text, out kortelesNr);
+            if (arGerasKortelesnumeris == false)
+            {
+                MessageBox.Show("blogai ávestas kortelës numeris");
+                tb_bankoKortelesNumeris.Clear();
+                return;
+            }
+            if (arGerasPin == false)
+            {
+                meginimaiPrisijungti++;
+                MessageBox.Show($"Blogai ávestas PIN kodas. Jums liko {3 - meginimaiPrisijungti} meginimai");
+                tb_pinKodas.Clear();
+                return;
+            }
 
             var _bankoKorteleRepozitorija = new BankoKorteleRepozitorija();
             bool ArPavykoPrisijungti = _bankoKorteleRepozitorija.PatikrintiArGerasPinKodas(tb_bankoKortelesNumeris.Text, int.Parse(tb_pinKodas.Text));
 
-            if (ArPavykoPrisijungti == false && meginimaiPrisijungti < 4)
+            var kortelesDuomenys = _bankoKorteleRepozitorija.GrazintiKortelesDuomenis(tb_bankoKortelesNumeris.Text);
+            if(kortelesDuomenys == null)
+            {
+                MessageBox.Show("Kortelë nurodytu numeriu nerasta. Pasitikrinkite ar gerai ávedëtë kortelës numerá");
+                return;
+            }
+
+            if (ArPavykoPrisijungti == false || arGerasPin == false && meginimaiPrisijungti < 4)
             {
                 meginimaiPrisijungti ++;
                 MessageBox.Show($"Blogai ávestas PIN kodas. Jums liko {3 - meginimaiPrisijungti} meginimai");

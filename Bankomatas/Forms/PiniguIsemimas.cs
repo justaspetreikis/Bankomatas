@@ -1,4 +1,6 @@
-﻿using Bankomatas.Repozitorijos;
+﻿using Bankomatas.Class;
+using Bankomatas.Interfaces;
+using Bankomatas.Repozitorijos;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,7 +19,6 @@ namespace Bankomatas.Forms
         {
             InitializeComponent();
         }
-
         private void button_gristi_Click(object sender, EventArgs e)
         {
             var pasirinkimai = new form_Pasirinkimai();
@@ -32,6 +33,15 @@ namespace Bankomatas.Forms
 
         private void button_Issiimti_Click(object sender, EventArgs e)
         {
+            double ivestaSuma;
+            bool ivestaGeraSuma = double.TryParse(tb_iveskitePiniguSuma.Text, out ivestaSuma);
+            if(ivestaGeraSuma == false)
+            {
+                MessageBox.Show("Blogai įvesta suma");
+                tb_iveskitePiniguSuma.Clear();
+                return;
+            }
+
             var _bankoKorteleRepozitorija = new BankoKorteleRepozitorija();
             var kortele = _bankoKorteleRepozitorija.GrazintiKortelesDuomenis(Form_bankomatas.kortelesNumeris);
 
@@ -49,6 +59,18 @@ namespace Bankomatas.Forms
             if(double.Parse(tb_iveskitePiniguSuma.Text) > 1000)
             {
                 MessageBox.Show($"Maksimali išimamų pinigų suma 1000 Eur");
+                return;
+            }
+
+            var _transkacija = new TransakcijaRepositorija();
+            var transakcijos = _transkacija.GrazintiVisuKorteliuLista();
+
+            var kiekis = transakcijos.Where(a => a.KortelesNumeris == Guid.Parse(Form_bankomatas.kortelesNumeris)).
+                                      Count(c => c.OperacijosLaikas.Date == DateTime.Today.Date);
+
+            if (kiekis > 10)
+            {
+                MessageBox.Show($"Pasiektas dienos limitas. 10 operacijų per dieną");
                 return;
             }
 

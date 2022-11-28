@@ -42,10 +42,11 @@ namespace Bankomatas.Repozitorijos
         {
             bool duomenysTeisingi = true;
             var kortelesDuomenys = KorteliuListas.Where(x => x.KortelesNumeris == Guid.Parse(kortelesNumeris)).FirstOrDefault();
-            if (kortelesDuomenys.PinKodas != PinKodas)
+            if (kortelesDuomenys == null || kortelesDuomenys.PinKodas != PinKodas)
             {
                 duomenysTeisingi = false;
             }
+
             return duomenysTeisingi;
 
         }

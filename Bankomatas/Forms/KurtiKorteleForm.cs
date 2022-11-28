@@ -54,5 +54,11 @@ namespace Bankomatas.Forms
             tb_kortelesNumeris.Clear();
             tb_PinKodas.Clear();
         }
+
+        private void button_copy_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(tb_kortelesNumeris.Text.ToString());
+            MessageBox.Show("Kortelės numeris nukopijuotas");
+        }
     }
 }

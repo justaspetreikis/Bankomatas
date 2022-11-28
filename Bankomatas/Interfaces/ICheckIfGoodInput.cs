@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Bankomatas.Interfaces
 {
-    public interface IGrazintiDuomenis<T>
+    internal interface ICheckIfGoodInput
     {
-        public List<T> GrazintiVisuKorteliuLista();
+        public void IsGoodInput();
     }
 }

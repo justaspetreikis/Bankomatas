@@ -37,6 +37,7 @@
             this.button_gristi = new System.Windows.Forms.Button();
             this.button_kurtiKortele = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
+            this.button_copy = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button_generuotiKortelesNumeri
@@ -123,11 +124,22 @@
             this.label3.TabIndex = 8;
             this.label3.Text = "Naujos kortelės sukūrimas";
             // 
+            // button_copy
+            // 
+            this.button_copy.Location = new System.Drawing.Point(713, 94);
+            this.button_copy.Name = "button_copy";
+            this.button_copy.Size = new System.Drawing.Size(75, 29);
+            this.button_copy.TabIndex = 9;
+            this.button_copy.Text = "Copy";
+            this.button_copy.UseVisualStyleBackColor = true;
+            this.button_copy.Click += new System.EventHandler(this.button_copy_Click);
+            // 
             // form_KurtiKortele
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button_copy);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.button_kurtiKortele);
             this.Controls.Add(this.button_gristi);
@@ -156,5 +168,6 @@
         private Button button_gristi;
         private Button button_kurtiKortele;
         private Label label3;
+        private Button button_copy;
     }
 }

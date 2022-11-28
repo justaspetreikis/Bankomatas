@@ -27,6 +27,19 @@ namespace Bankomatas.Forms
 
         private void button_Gristi_Click(object sender, EventArgs e)
         {
+            int ivestasPin;
+            bool ivestaGerasPin = int.TryParse(tb_EsamasPin.Text, out ivestasPin);
+            bool naujasGerasPin = int.TryParse(tb_NaujasPin.Text, out ivestasPin);
+            bool pakartotasGerasPin = int.TryParse(tb_NaujasPin.Text, out ivestasPin);
+            if (ivestaGerasPin == false || naujasGerasPin == false || pakartotasGerasPin == false)
+            {
+                MessageBox.Show("Blogai įvestas PIN kodas. PIN kodas turi būti sudarytas iš 4 skaičių.");
+                tb_EsamasPin.Clear();
+                tb_NaujasPin.Clear();
+                tb_PakartotiNaujaPin.Clear();
+                return;
+            }
+
             var _bankoKorteleRepozitorija = new BankoKorteleRepozitorija();
             var kortele = _bankoKorteleRepozitorija.GrazintiKortelesDuomenis(Form_bankomatas.kortelesNumeris);
 
